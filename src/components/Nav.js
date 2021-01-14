@@ -3,7 +3,7 @@ const Nav = ({handleLogout}) => {
 	return (
 		<section className="hero">
 			<nav>
-				<h2>Bonjour 😁</h2>
+				<h2>Bonjour 😁 </h2>
 				<button onClick={handleLogout}>Se Déconncter</button>
 			</nav>
 			</section>

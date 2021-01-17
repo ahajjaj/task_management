@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import "../styles/App.scss";
 import StatusLine from "./StatusLine";
-import Hero from "./Nav";
+import Nav from "./Nav";
 import fire from "../fire";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
+
+const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -89,12 +95,23 @@ function App() {
 const handleLogout = () => {
   fire.auth().signOut();
 };
+const [theme, setTheme] = useState("light");
+
+const themeToggler = () => {
+  theme === "light" ? setTheme("dark") : setTheme("light");
+};
 
   return (
     <div className="App">
-      <Hero 
-      handleLogout={handleLogout}
-      />
+      <Nav handleLogout={handleLogout} />
+      
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <StyledApp>
+        <button onClick={() => themeToggler()}>Change Theme</button>
+        </StyledApp>
+      </ThemeProvider>
+      
       <h1>Gestionnaire de taches ❗</h1>
       <main>
         <section>

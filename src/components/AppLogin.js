@@ -83,7 +83,7 @@ useEffect(() => {
 
 return (
     <>
-        <Router>
+        <Router>  
         <Switch>
           {user ? (
               <App handleLogout={handleLogout} />

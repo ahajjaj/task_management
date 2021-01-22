@@ -3,14 +3,19 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Navbar.css';
+import '../styles//Navbar.css';
+import fire from "../fire";
 import { IconContext } from 'react-icons';
+import Button from '@material-ui/core/Button';
+
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-
+  const handleLogout = () => {
+    fire.auth().signOut();
+  };
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -36,6 +41,14 @@ function Navbar() {
                 </li>
               );
             })}
+
+
+                <li className='nav-text'>
+                  <Link  onClick={() => handleLogout()}>
+                  <FaIcons.FaSignOutAlt />
+                    <span>Déconnexion</span>
+                  </Link>
+                </li>
           </ul>
         </nav>
       </IconContext.Provider>

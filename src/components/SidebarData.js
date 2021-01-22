@@ -21,10 +21,4 @@ export const SidebarData = [
     path: '/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
-  },
-  {
-    title: 'Déconnexion',
-    path: '/support',
-    icon: <FaIcons.FaSignOutAlt />,
-    cName: 'nav-text'
   }];

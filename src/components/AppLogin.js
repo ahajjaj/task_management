@@ -2,7 +2,8 @@ import React,{ useState,useEffect } from 'react';
 import fire from "../fire";
 import Login from './Login';
 import App from './App';
-
+import Home from './Home';
+GIT 
 import '../styles/AppLogin.scss';
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 
@@ -85,6 +86,7 @@ return (
     <>
         <Router>  
         <Switch>
+        <Route path='/home' exact component={Home} />
           {user ? (
               <App handleLogout={handleLogout} />
             

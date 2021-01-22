@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Profil from './Profile';
-import AppLogin from './AppLogin';
+import Messages from './Messages';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/profil' component={Profil} />
+          <Route path='/messages' component={Messages} />
         </Switch>
       </Router>
     </>
